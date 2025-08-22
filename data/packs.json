@@ -1,0 +1,6 @@
+[
+  { "id": "eng_week1", "title": "Week 1 – Tenses & Agreement", "path": "data/eng_week1.json" },
+  { "id": "eng_week2", "title": "Week 2 – Conditionals & Modals", "path": "data/eng_week2.json" },
+  { "id": "eng_week3", "title": "Week 3 – Reported Speech & Passive", "path": "data/eng_week3.json" },
+  { "id": "eng_week4", "title": "Week 4 – Clauses, Discourse & Punctuation", "path": "data/eng_week4.json" }
+]
