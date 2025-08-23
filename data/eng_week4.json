@@ -1,0 +1,43 @@
+{
+  "meta": { "id": "eng_week4", "title": "Week 4 – Clauses, Discourse & Punctuation", "description": "Relative/participial clauses; linking devices; comma & colon/semicolon; parallelism." },
+  "questions": [
+    {
+      "id": "W4-Q1",
+      "type": "mcq",
+      "question": "Choose the correct defining relative clause:",
+      "choices": [
+        "The book which I borrowed it was fascinating.",
+        "The book that I borrowed was fascinating.",
+        "The book, that I borrowed, was fascinating."
+      ],
+      "answer": [1],
+      "explanation": "Defining relative: no commas; no resumptive pronoun."
+    },
+    {
+      "id": "W4-Q2",
+      "type": "cloze",
+      "question": "Insert a suitable linker: \"She studied hard; ____ , she topped the class.\" ____",
+      "answer": ["as a result", "therefore", "consequently", "hence"],
+      "explanation": "Causal/result linking device after semicolon."
+    },
+    {
+      "id": "W4-Q3",
+      "type": "mcq",
+      "question": "Which sentence uses the semicolon correctly?",
+      "choices": [
+        "I finished the essay; and I submitted it.",
+        "I finished the essay; I submitted it before midnight.",
+        "I finished the essay: I submitted it.",
+        "I finished the essay, I submitted it."
+      ],
+      "answer": [1],
+      "explanation": "Semicolon joins two related independent clauses."
+    },
+    {
+      "id": "W4-Q4",
+      "type": "transform",
+      "question": "Combine using a participial clause: \"He opened the window. He let in some fresh air.\"",
+      "answer": ["Opening the window, he let in some fresh air.", "He opened the window, letting in some fresh air."]
+    }
+  ]
+}
