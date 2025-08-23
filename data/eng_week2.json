@@ -1,0 +1,53 @@
+{
+  "meta": { "id": "eng_week2", "title": "Week 2 – Conditionals & Modals", "description": "Zero/1st/2nd/3rd mixed; modal meanings & formality." },
+  "questions": [
+    {
+      "id": "W2-Q1",
+      "type": "mcq",
+      "question": "Choose the correct second conditional:",
+      "choices": [
+        "If I will see him, I tell him.",
+        "If I saw him, I would tell him.",
+        "If I see him, I would tell him.",
+        "If I had seen him, I would tell him."
+      ],
+      "answer": [1],
+      "explanation": "2nd cond.: past simple + would + base."
+    },
+    {
+      "id": "W2-Q2",
+      "type": "cloze",
+      "question": "Complete (third conditional): \"If you ____ (tell) me, I ____ (help) you.\" ____",
+      "answer": ["had told, would have helped", "had told me, would have helped you"],
+      "explanation": "3rd cond.: had + pp / would have + pp."
+    },
+    {
+      "id": "W2-Q3",
+      "type": "mcq",
+      "question": "Which shows deduction in the present?",
+      "choices": ["He must be at school.", "He had to be at school.", "He can be at school.", "He may had been at school."],
+      "answer": [0],
+      "explanation": "'must + be' expresses strong present deduction."
+    },
+    {
+      "id": "W2-Q4",
+      "type": "transform",
+      "question": "Paraphrase with a modal of obligation: \"It’s necessary for you to submit by Friday.\"",
+      "prompt": "Use 'have to' or 'must'.",
+      "answer": ["You must submit by Friday.", "You have to submit by Friday."],
+      "explanation": "Obligation → must/have to."
+    },
+    {
+      "id": "W2-Q5",
+      "type": "mcq",
+      "question": "Zero conditional (general truth):",
+      "choices": [
+        "If water reaches 100°C, it boils.",
+        "If water will reach 100°C, it will boil.",
+        "If water reached 100°C, it would boil.",
+        "If water had reached 100°C, it would have boiled."
+      ],
+      "answer": [0]
+    }
+  ]
+}
