@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "id": "eng_week1",
+    "title": "Week 1 – Tenses & Agreement",
+    "description": "Present/past/perfect/continuous, subject–verb agreement, adverb position."
+  },
+  "questions": [
+    {
+      "id": "W1-Q1",
+      "type": "mcq",
+      "question": "Choose the best option: \"She ____ tennis every Sunday.\"",
+      "choices": ["play", "plays", "is play", "playing"],
+      "answer": [1],
+      "explanation": "Habitual action → simple present; 3rd person singular takes -s."
+    },
+    {
+      "id": "W1-Q2",
+      "type": "mcq",
+      "question": "Which sentence is correct?",
+      "choices": [
+        "Neither my parents nor my brother are coming.",
+        "Neither my parents nor my brother is coming.",
+        "Neither my parents nor my brother be coming.",
+        "Neither my parents nor my brother am coming."
+      ],
+      "answer": [1],
+      "explanation": "With 'neither … nor', the verb agrees with the closer subject (brother → is)."
+    },
+    {
+      "id": "W1-Q3",
+      "type": "cloze",
+      "question": "Complete: \"By the time we arrived, the film ____ (start).\" ____",
+      "answer": ["had started", "had already started"],
+      "explanation": "Past perfect for earlier past action."
+    },
+    {
+      "id": "W1-Q4",
+      "type": "mcq",
+      "question": "Best adverb position: \"He has finished the report _____.\"",
+      "choices": ["already", "yet", "still", "anymore"],
+      "answer": [0],
+      "explanation": "In affirmative present perfect → 'already'."
+    },
+    {
+      "id": "W1-Q5",
+      "type": "mcq",
+      "question": "Choose the correct tense: \"Listen! The baby _____.\"",
+      "choices": ["cries", "is crying", "has cried", "cry"],
+      "answer": [1],
+      "explanation": "Action happening now → present continuous."
+    },
+    {
+      "id": "W1-Q6",
+      "type": "cloze",
+      "question": "Make a negative: \"She has visited London.\" → ____",
+      "answer": ["She hasn't visited London.", "She has not visited London."],
+      "explanation": "Present perfect negative."
+    },
+    {
+      "id": "W1-Q7",
+      "type": "mcq",
+      "question": "Which is correct?",
+      "choices": [
+        "A number of students is missing.",
+        "A number of students are missing.",
+        "The number of students are missing.",
+        "The number of students were missing."
+      ],
+      "answer": [1],
+      "explanation": "'A number of + plural noun' → plural verb."
+    },
+    {
+      "id": "W1-Q8",
+      "type": "mcq",
+      "question": "Choose the best option: \"I ____ for two hours when he called.\"",
+      "choices": ["studied", "was studying", "have studied", "had been studying"],
+      "answer": [3],
+      "explanation": "Ongoing action before another past action → past perfect continuous."
+    },
+    {
+      "id": "W1-Q9",
+      "type": "cloze",
+      "question": "Insert 'ever/never/just/already/yet' as appropriate: \"Have you ____ been to Iceland?\" ____",
+      "answer": ["ever"],
+      "explanation": "Questions in present perfect → 'ever'."
+    },
+    {
+      "id": "W1-Q10",
+      "type": "mcq",
+      "question": "Find the error:",
+      "choices": [
+        "Each of the players have a locker.",
+        "Each of the players has a locker.",
+        "Each player has a locker.",
+        "Every player has a locker."
+      ],
+      "answer": [1,2,3],
+      "multi": true,
+      "explanation": "Only sentence A is incorrect (subject 'Each' is singular)."
+    },
+    {
+      "id": "W1-Q11",
+      "type": "transform",
+      "question": "Rewrite using the present perfect: \"He started living here in 2020 and lives here now.\"",
+      "prompt": "Begin with: He ____",
+      "answer": ["He has lived here since 2020.", "He has been living here since 2020."],
+      "explanation": "Action from past to present → present perfect (simple/continuous)."
+    },
+    {
+      "id": "W1-Q12",
+      "type": "mcq",
+      "question": "Best option: \"There ____ many reasons to be optimistic.\"",
+      "choices": ["is", "are", "be", "been"],
+      "answer": [1],
+      "explanation": "Existential 'there' + plural noun → 'are'."
+    },
+    {
+      "id": "W1-Q13",
+      "type": "cloze",
+      "question": "Complete with a time expression: \"I haven't seen her ____ last summer.\" ____",
+      "answer": ["since", "since last summer"],
+      "explanation": "Use 'since' with a point in time."
+    },
+    {
+      "id": "W1-Q14",
+      "type": "mcq",
+      "question": "Choose the correct sentence.",
+      "choices": [
+        "He rarely is late.",
+        "Rarely he is late.",
+        "He is rarely late.",
+        "He late rarely is."
+      ],
+      "answer": [2],
+      "explanation": "Frequency adverbs usually before main verb but after 'be' → 'is rarely'."
+    },
+    {
+      "id": "W1-Q15",
+      "type": "match",
+      "question": "Match tense to example.",
+      "pairs": [
+        {"left": "Past perfect"},
+        {"left": "Present perfect continuous"},
+        {"left": "Future with 'going to'"}
+      ],
+      "options": [
+        "I was tired because I had worked all day.",
+        "She's been studying for three hours.",
+        "It is going to rain this afternoon."
+      ],
+      "answer": [
+        "I was tired because I had worked all day.",
+        "She's been studying for three hours.",
+        "It is going to rain this afternoon."
+      ],
+      "explanation": "Recognize form + use."
+    },
+    {
+      "id": "W1-Q16",
+      "type": "cloze",
+      "question": "Complete: \"Neither my friends nor my teacher ____ happy about the delay.\" ____",
+      "answer": ["is"],
+      "explanation": "Verb agrees with the nearer subject ('teacher')."
+    },
+    {
+      "id": "W1-Q17",
+      "type": "mcq",
+      "question": "Choose the best option: \"By next July, I ____ my thesis.\"",
+      "choices": ["will finish", "will have finished", "am finishing", "have finished"],
+      "answer": [1],
+      "explanation": "Completed action before a future time → future perfect."
+    },
+    {
+      "id": "W1-Q18",
+      "type": "cloze",
+      "question": "Make a question (present perfect): \"you / finish / your homework\" → ____",
+      "answer": ["Have you finished your homework?"],
+      "explanation": "Aux 'have' + past participle; question word order."
+    }
+  ]
+}
