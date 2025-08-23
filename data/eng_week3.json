@@ -1,0 +1,31 @@
+{
+  "meta": { "id": "eng_week3", "title": "Week 3 – Reported Speech & Passive", "description": "Backshift, reporting verbs; active/passive forms and uses." },
+  "questions": [
+    {
+      "id": "W3-Q1",
+      "type": "cloze",
+      "question": "Reported speech: Direct = \"I am studying now,\" she said. → She said that ____",
+      "answer": ["she was studying then", "she was studying at that time"],
+      "explanation": "Backshift: am studying → was studying; 'now' → 'then'."
+    },
+    {
+      "id": "W3-Q2",
+      "type": "mcq",
+      "question": "Choose the passive form: \"People believe that the painting is priceless.\"",
+      "choices": [
+        "The painting is believed to be priceless.",
+        "It is believed people the painting is priceless.",
+        "The painting believes to be priceless.",
+        "Believed the painting is priceless."
+      ],
+      "answer": [0]
+    },
+    {
+      "id": "W3-Q3",
+      "type": "transform",
+      "question": "Change to passive: \"They will announce the results tomorrow.\"",
+      "answer": ["The results will be announced tomorrow."],
+      "explanation": "Future simple passive: will be + past participle."
+    }
+  ]
+}
