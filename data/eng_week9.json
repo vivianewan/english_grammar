@@ -1,0 +1,17 @@
+{
+  "meta": { "title": "Week 9 – Relative Clauses & Appositives", "topic": "relative clauses" },
+  "questions": [
+    { "type": "mcq", "question": "Choose the correct relative pronoun: The woman ____ lives next door is a doctor.", "options": ["which", "whose", "who", "whom"], "answer": 2 },
+    { "type": "mcq", "question": "Non‑defining clause needs…", "options": ["no commas", "commas", "a semicolon", "a dash"], "answer": 1 },
+    { "type": "mcq", "question": "Choose the best option: The book ____ I told you about is here.", "options": ["who", "which", "whom", "where"], "answer": 1 },
+    { "type": "mcq", "question": "Choose the correct form:", "options": ["The man to who I spoke was kind.", "The man whom I spoke to was kind.", "The man which I spoke to was kind.", "The man whom I spoke was kind."], "answer": 1 },
+    { "type": "mcq", "question": "Identify the non‑defining example.", "options": ["My brother who lives in Toronto is a chef.", "My brother, who lives in Toronto, is a chef.", "The student whose phone rang left the room.", "The class that meets on Mondays is small."], "answer": 1 },
+    { "type": "fill", "question": "Fill in: That’s the museum ____ we first met.", "answer": ["where"] },
+    { "type": "fill", "question": "Fill in: The girl ____ hair is blue won the contest.", "answer": ["whose"] },
+    { "type": "mcq", "question": "Which can omit the relative pronoun?", "options": ["The movie (that) we watched", "The teacher (who) taught us", "The city (which) is beautiful", "The boy (whom) I like"], "answer": 0, "explanation": "Object in a defining clause can be omitted." },
+    { "type": "mcq", "question": "Choose the best punctuation for appositives:", "options": ["My friend Alex who plays chess won.", "My friend, Alex, who plays chess won.", "My friend Alex, who plays chess, won.", "My friend, Alex who plays chess, won."], "answer": 2 },
+    { "type": "mcq", "question": "Find the error:", "options": ["Paris, which is in France, is popular.", "My cousin who is a doctor lives here.", "The bike that I borrowed was broken.", "The teacher to whom I spoke was patient."], "answer": 1, "explanation": "If you have more than one cousin, defining is OK; but many contexts require commas—here marked as error for contrast practice." },
+    { "type": "fill", "question": "Join the sentences with a relative clause: The boy is crying. I helped the boy. → The boy ____ I helped is crying.", "answer": ["(whom) I helped", "who I helped", "that I helped"] },
+    { "type": "mcq", "question": "Choose the correct sentence:", "options": ["The school, that was founded in 1900, is famous.", "The school that was founded in 1900 is famous.", "The school which was, founded in 1900 is famous.", "The school that, was founded in 1900, is famous."], "answer": 1 }
+  ]
+}
