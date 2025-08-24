@@ -3,68 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>English Grammar Sprint</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>English Grammar Practice</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <h1>English Grammar Sprint</h1>
+    <h1>English Grammar Practice</h1>
     <nav>
-      <a href="#" id="link-home" class="active">Practice</a>
+      <button id="btn-start" class="primary">Start Practice</button>
+      <button id="btn-end" class="ghost" title="Finish the current session">End Session</button>
     </nav>
   </header>
 
-  <main id="view-home" class="view active">
-    <section class="controls">
-      <div class="control-group">
-        <label for="pack-select">Choose Quiz Pack:</label>
-        <select id="pack-select"></select>
-      </div>
-      <div class="control-group">
-        <label for="mode-select">Mode:</label>
-        <select id="mode-select">
-          <option value="practice">Practice (instant feedback)</option>
-          <option value="test">Test (final feedback)</option>
-        </select>
-      </div>
-      <div class="control-group">
-        <label for="qcount">Number of questions:</label>
-        <input id="qcount" type="number" min="5" max="100" value="12" />
-      </div>
-      <div class="control-group">
-        <button id="btn-start">Start</button>
-        <button id="btn-resume" class="secondary">Resume</button>
+  <main class="view active">
+    <section class="statusbar">
+      <div><strong>Question</strong> <span id="q-number">0</span></div>
+      <div><strong>Correct</strong> <span id="q-correct">0</span></div>
+      <div><strong>Streak</strong> <span id="q-streak">0</span></div>
+    </section>
+
+    <section id="card" class="card hidden">
+      <div id="prompt" class="prompt"></div>
+      <div id="choices" class="choices"></div>
+      <div id="feedback" class="feedback hidden"></div>
+      <div class="actions">
+        <!-- no submit button anymore -->
+        <button id="btn-next" class="primary">Next →</button>
       </div>
     </section>
 
-    <section id="quiz" class="quiz hidden">
-      <div class="quiz-topbar">
-        <div>Progress: <span id="progress">0/0</span></div>
-        <div>Score: <span id="score">0</span></div>
-      </div>
-      <div id="question-container"></div>
-      <div class="actions">
-        <button id="btn-submit">Submit Answer</button>
-        <button id="btn-next" class="secondary">Next</button>
-        <button id="btn-show" class="ghost">Show Answer</button>
-      </div>
-      <div id="feedback" class="feedback"></div>
-    </section>
-
-    <section id="results" class="results hidden">
-      <h2>Results</h2>
-      <p>Score: <strong id="final-score">0</strong> / <span id="final-total">0</span></p>
-      <div id="review"></div>
-      <div class="actions">
-        <button id="btn-retry-wrong">Retry Wrong Answers</button>
-        <button id="btn-restart" class="secondary">Restart</button>
-        <button id="btn-export" class="ghost">Export Results (JSON)</button>
-      </div>
+    <section id="empty" class="muted">
+      Click “Start Practice” to begin. Questions will continue indefinitely (reshuffled) until you click “End Session.”
     </section>
   </main>
 
   <footer class="site-footer">
-    <span>Made for practice</span>
+    <small>Endless practice mode • Auto‑submit on “Next”</small>
   </footer>
 
   <script src="app.js"></script>
