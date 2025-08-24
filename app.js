@@ -1,4 +1,4 @@
-/* Endless practice + auto-submit-on-next
+/* Endless practice + auto-submit-on-next + SESSION SUMMARY
    Loads all packs listed in data/packs.json and continuously cycles through them.
 */
 
@@ -14,15 +14,28 @@ const els = {
   qnum: document.getElementById("q-number"),
   correct: document.getElementById("q-correct"),
   streak: document.getElementById("q-streak"),
+  // summary modal
+  modal: document.getElementById("summary-modal"),
+  backdrop: document.getElementById("summary-backdrop"),
+  sumAnswered: document.getElementById("sum-answered"),
+  sumCorrect: document.getElementById("sum-correct"),
+  sumAccuracy: document.getElementById("sum-accuracy"),
+  sumMaxStreak: document.getElementById("sum-maxstreak"),
+  sumTime: document.getElementById("sum-time"),
+  modalClose: document.getElementById("summary-close"),
+  modalRestart: document.getElementById("summary-restart"),
 };
 
 let BANK = [];          // all questions
 let order = [];         // shuffled indices
 let i = 0;              // position in order
 let started = false;
+let answered = 0;
 let score = 0;
 let streak = 0;
+let maxStreak = 0;
 let submitted = false;  // has the current question been auto-submitted yet?
+let sessionStart = 0;
 
 // ---- helpers ---------------------------------------------------------------
 
@@ -68,6 +81,8 @@ function renderQuestion(q) {
       <input id="fill-answer" type="text" placeholder="Type your answer" autocomplete="off">
     `;
     els.choices.appendChild(w);
+    // focus for faster typing
+    setTimeout(() => document.getElementById("fill-answer")?.focus(), 0);
   }
 }
 
@@ -85,7 +100,6 @@ function getUserAnswer(q) {
 function isCorrect(q, ans) {
   if (q.type === "mcq") return ans === q.answer;                // answer is index
   if (q.type === "fill") {
-    // case-insensitive, trim; allow any of an array of answers
     const gold = Array.isArray(q.answer) ? q.answer : [q.answer];
     return gold.map(s => s.trim().toLowerCase()).includes((ans ?? "").toLowerCase());
   }
@@ -94,9 +108,9 @@ function isCorrect(q, ans) {
 
 function showFeedback(ok, q) {
   const prefix = ok ? "✅ Correct." : "❌ Not quite.";
-  const reveal = (q.type === "mcq") ?
-    `Answer: <strong>${encodeHTML(q.options[q.answer])}</strong>` :
-    `Answer: <strong>${encodeHTML(Array.isArray(q.answer) ? q.answer.join(" / ") : q.answer)}</strong>`;
+  const reveal = (q.type === "mcq")
+    ? `Answer: <strong>${encodeHTML(q.options[q.answer])}</strong>`
+    : `Answer: <strong>${encodeHTML(Array.isArray(q.answer) ? q.answer.join(" / ") : q.answer)}</strong>`;
   const expl = q.explanation ? `<div class="explain">${encodeHTML(q.explanation)}</div>` : "";
   els.feedback.innerHTML = `${prefix} ${reveal}${expl}`;
   show(els.feedback);
@@ -115,6 +129,63 @@ function nextIndex() {
     order = shuffle([...Array(BANK.length).keys()]);
     i = 0;
   }
+}
+
+// ---- session summary -------------------------------------------------------
+
+function formatDuration(ms) {
+  const totalSec = Math.max(0, Math.floor(ms / 1000));
+  const m = Math.floor(totalSec / 60);
+  const s = totalSec % 60;
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
+function openSummary() {
+  // compute stats
+  const elapsed = Date.now() - sessionStart;
+  const accuracy = answered ? Math.round((score / answered) * 100) : 0;
+
+  els.sumAnswered.textContent = String(answered);
+  els.sumCorrect.textContent = String(score);
+  els.sumAccuracy.textContent = `${accuracy}%`;
+  els.sumMaxStreak.textContent = String(maxStreak);
+  els.sumTime.textContent = formatDuration(elapsed);
+
+  // show modal
+  els.backdrop.classList.remove("hidden");
+  if (typeof els.modal.showModal === "function") {
+    els.modal.showModal();
+  } else {
+    // fallback if <dialog> unsupported
+    els.modal.classList.remove("hidden");
+  }
+}
+
+function closeSummary() {
+  els.backdrop.classList.add("hidden");
+  if (typeof els.modal.close === "function") {
+    els.modal.close();
+  } else {
+    els.modal.classList.add("hidden");
+  }
+}
+
+function resetStateToLanding() {
+  started = false;
+  BANK = [];
+  order = [];
+  i = 0;
+  answered = 0;
+  score = 0;
+  streak = 0;
+  maxStreak = 0;
+  submitted = false;
+  sessionStart = 0;
+  els.qnum.textContent = "0";
+  els.correct.textContent = "0";
+  els.streak.textContent = "0";
+  hide(els.card);
+  show(els.empty);
 }
 
 // ---- engine ---------------------------------------------------------------
@@ -142,11 +213,18 @@ async function start() {
   BANK = await loadAllPacks();
   if (!BANK.length) {
     alert("No questions found. Check data/packs.json.");
+    started = false;
     return;
   }
 
   order = shuffle([...Array(BANK.length).keys()]);
-  i = 0; score = 0; streak = 0; submitted = false;
+  i = 0;
+  answered = 0;
+  score = 0;
+  streak = 0;
+  maxStreak = 0;
+  submitted = false;
+  sessionStart = Date.now();
 
   hide(els.empty);
   show(els.card);
@@ -166,32 +244,7 @@ function autoSubmitThenAdvance() {
   if (!submitted) {
     const ans = getUserAnswer(q);
     const ok = isCorrect(q, ans);
-    if (ok) { score++; streak++; } else { streak = 0; }
-    showFeedback(ok, q);
-    submitted = true;
-    els.next.textContent = "Continue →";
-    updateStatus();
-  } else {
-    nextIndex();
-    paintCurrent();
-  }
-}
-
-// ---- wire up --------------------------------------------------------------
-
-els.start.addEventListener("click", start);
-els.end.addEventListener("click", () => {
-  started = false;
-  hide(els.card);
-  show(els.empty);
-});
-els.next.addEventListener("click", autoSubmitThenAdvance);
-
-// keyboard: Enter = Next
-document.addEventListener("keydown", (e) => {
-  if (!started) return;
-  if (e.key === "Enter") {
-    e.preventDefault();
-    autoSubmitThenAdvance();
-  }
-});
+    // update stats once per question
+    answered++;
+    if (ok) {
+      score++;
