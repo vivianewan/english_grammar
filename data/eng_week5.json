@@ -1,0 +1,241 @@
+{
+  "meta": { "title": "Week 5 – Advanced ESL (Sec 2)", "topic": "mixed grammar" },
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Choose the best option: If he ____ earlier, he wouldn’t have missed the train.",
+      "options": ["leaves", "left", "had left", "would leave"],
+      "answer": 2,
+      "explanation": "Third conditional: If + past perfect, would have + past participle."
+    },
+    {
+      "type": "mcq",
+      "question": "Identify the error: Everyone should bring their own pencil.",
+      "options": ["Everyone", "should bring", "their", "own pencil"],
+      "answer": 2,
+      "explanation": "Formal agreement prefers 'his or her', though singular 'they' is now widely accepted. Marked here for practice."
+    },
+    {
+      "type": "mcq",
+      "question": "Which sentence uses the definite article correctly?",
+      "options": [
+        "The Mount Everest is the highest mountain.",
+        "Mount Everest is highest mountain.",
+        "Mount Everest is the highest mountain.",
+        "Mount Everest is a highest mountain."
+      ],
+      "answer": 2,
+      "explanation": "No 'the' before most proper names; use 'the highest' with superlative."
+    },
+    {
+      "type": "mcq",
+      "question": "Reported speech: “I am studying now,” she said.",
+      "options": [
+        "She said that she was studying then.",
+        "She said that she is studying now.",
+        "She said that I was studying then.",
+        "She says she was studying now."
+      ],
+      "answer": 0,
+      "explanation": "Backshift: present continuous → past continuous; 'now' → 'then'."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct preposition: He’s allergic ____ peanuts.",
+      "options": ["to", "with", "for", "at"],
+      "answer": 0,
+      "explanation": "Common collocation: allergic to."
+    },
+    {
+      "type": "mcq",
+      "question": "Which option best completes the sentence? Hardly ____ the door when the phone rang.",
+      "options": ["I had closed", "had I closed", "I closed", "I was closing"],
+      "answer": 1,
+      "explanation": "Inversion after negative adverbials: 'Hardly had I… when…'"
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the best relative pronoun: The book, ____ I bought yesterday, is already sold out.",
+      "options": ["that", "which", "who", "where"],
+      "answer": 1,
+      "explanation": "Non‑defining clause → 'which'."
+    },
+    {
+      "type": "mcq",
+      "question": "Find the correctly punctuated sentence.",
+      "options": [
+        "She likes cooking, her brother, and her dog.",
+        "She likes cooking her brother and her dog.",
+        "She likes; cooking, her brother and her dog.",
+        "She likes cooking her brother, and her dog."
+      ],
+      "answer": 0,
+      "explanation": "Serial comma avoids ambiguity."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct verb form: Neither the teachers nor the principal ____ available.",
+      "options": ["are", "were", "is", "be"],
+      "answer": 2,
+      "explanation": "Agreement with the nearest subject (principal)."
+    },
+    {
+      "type": "mcq",
+      "question": "Best word choice: We need to ____ the differences between the two designs.",
+      "options": ["compare", "contrast", "compose", "compress"],
+      "answer": 1,
+      "explanation": "To 'contrast' is to emphasize differences."
+    },
+    {
+      "type": "fill",
+      "question": "Fill in: He insisted ____ paying the bill.",
+      "answer": ["on"],
+      "explanation": "Insist on + -ing."
+    },
+    {
+      "type": "fill",
+      "question": "Fill in: It’s high time we ____ (leave).",
+      "answer": ["left"],
+      "explanation": "‘It’s (high) time’ is followed by a past form with present meaning."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct conditional: If you heat ice, it ____.",
+      "options": ["melt", "melts", "would melt", "is melting"],
+      "answer": 1,
+      "explanation": "Zero conditional: general truths use present simple."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct sentence.",
+      "options": [
+        "By next July, I will live here for five years.",
+        "By next July, I will have lived here for five years.",
+        "By next July, I lived here for five years.",
+        "By next July, I have lived here for five years."
+      ],
+      "answer": 1,
+      "explanation": "Future perfect for duration up to a future point."
+    },
+    {
+      "type": "mcq",
+      "question": "Which sentence avoids the dangling modifier?",
+      "options": [
+        "Walking down the street, the houses looked old.",
+        "Walking down the street, I noticed the houses looked old.",
+        "Walking down the street, old houses were everywhere.",
+        "Walking down the street, there were many old houses."
+      ],
+      "answer": 1,
+      "explanation": "The subject performing the action must follow the introductory phrase."
+    },
+    {
+      "type": "fill",
+      "question": "Fill in the phrasal verb: I can’t ____ (figure/___) how this works.",
+      "answer": ["figure out", "figure-out"],
+      "explanation": "Common phrasal verb: figure out."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct article: She plays ____ piano beautifully.",
+      "options": ["a", "an", "the", "— (no article)"],
+      "answer": 3,
+      "explanation": "Musical instruments often take 'the' in BrE, but after 'play' many syllabi accept no article; use this key for practice consistency."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct form: Little ____ he know about the surprise party.",
+      "options": ["did", "does", "has", "had"],
+      "answer": 0,
+      "explanation": "Inversion with negative adverbials: Little did he know…"
+    },
+    {
+      "type": "fill",
+      "question": "Fill in: We look forward ____ you next week.",
+      "answer": ["to seeing"],
+      "explanation": "Look forward to + -ing."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the best collocation: The teacher ____ strict rules.",
+      "options": ["does", "makes", "sets", "puts"],
+      "answer": 2,
+      "explanation": "Set rules = establish."
+    },
+    {
+      "type": "mcq",
+      "question": "Best word: The movie’s ending was completely ____; no one expected it.",
+      "options": ["predictable", "mediocre", "unforeseen", "tedious"],
+      "answer": 2,
+      "explanation": "Unforeseen = unexpected."
+    },
+    {
+      "type": "fill",
+      "question": "Fill in the relative: That’s the student ____ essay won the prize.",
+      "answer": ["whose"],
+      "explanation": "Possession for people: whose."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct sentence about preference.",
+      "options": [
+        "I’d rather to stay home tonight.",
+        "I’d rather stay at home tonight.",
+        "I prefer stay at home tonight.",
+        "I prefer to staying at home tonight."
+      ],
+      "answer": 1,
+      "explanation": "Would rather + base verb."
+    },
+    {
+      "type": "mcq",
+      "question": "Find the correct parallel structure.",
+      "options": [
+        "She likes reading, to swim, and cycling.",
+        "She likes to read, swimming, and to cycle.",
+        "She likes reading, swimming, and cycling.",
+        "She likes read, swim, and to cycle."
+      ],
+      "answer": 2,
+      "explanation": "Maintain the same form across the list."
+    },
+    {
+      "type": "fill",
+      "question": "Fill in: Not until much later ____ the error.",
+      "answer": ["did we notice", "did I notice", "did they notice"],
+      "explanation": "Inversion after negative adverbials: Not until… did + subject + base."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct preposition: This problem is typical ____ beginner essays.",
+      "options": ["to", "for", "of", "with"],
+      "answer": 2,
+      "explanation": "Typical of."
+    },
+    {
+      "type": "mcq",
+      "question": "Best option: She denied ____ the window.",
+      "options": ["to break", "break", "breaking", "to have broken"],
+      "answer": 2,
+      "explanation": "Deny + -ing."
+    },
+    {
+      "type": "fill",
+      "question": "Transform to reported speech: He said, “I have finished.”",
+      "answer": ["He said (that) he had finished."],
+      "explanation": "Present perfect → past perfect."
+    },
+    {
+      "type": "mcq",
+      "question": "Choose the correct usage of ‘fewer/less’.",
+      "options": [
+        "There were less people this year.",
+        "I drank fewer water today.",
+        "We had fewer assignments this week.",
+        "She spent fewer money than me."
+      ],
+      "answer": 2,
+      "explanation": "Fewer for countable; less for uncountable."
+    }
+  ]
+}
