@@ -1,0 +1,19 @@
+{
+  "meta": { "title": "Week 7 – Conditionals & Wishes", "topic": "conditionals" },
+  "questions": [
+    { "type": "mcq", "question": "Zero conditional: If water reaches 100°C, it ____.", "options": ["boils", "boil", "would boil", "is boiling"], "answer": 0 },
+    { "type": "mcq", "question": "First conditional: If he ____ hard, he will pass.", "options": ["studies", "will study", "studied", "has studied"], "answer": 0 },
+    { "type": "mcq", "question": "Second conditional: If I ____ a million dollars, I ____ a house.", "options": ["have / buy", "had / would buy", "had / will buy", "have / would buy"], "answer": 1 },
+    { "type": "mcq", "question": "Third conditional: If they ____ earlier, they ____ the train.", "options": ["left / would catch", "had left / would have caught", "left / caught", "have left / catch"], "answer": 1 },
+    { "type": "fill", "question": "Fill in: If only I ____ (be) taller!", "answer": ["were"], "explanation": "Subjunctive 'were' for unreal present." },
+    { "type": "fill", "question": "Fill in: I wish you ____ (stop) interrupting me.", "answer": ["would stop"], "explanation": "Wish + would for annoyance/change in future." },
+    { "type": "mcq", "question": "Mixed: If she ____ harder, she would be at university now.", "options": ["had worked", "worked", "has worked", "would work"], "answer": 0 },
+    { "type": "mcq", "question": "Choose the correct inversion for emphasis:", "options": ["Had I knew, I would have helped.", "Had I known, I would have helped.", "If had I known, I would helped.", "Had I known, I would help."], "answer": 1 },
+    { "type": "mcq", "question": "Unless means…", "options": ["if and only if", "except if", "even if", "only if"], "answer": 1 },
+    { "type": "fill", "question": "Rewrite: If you don't hurry, you'll miss the bus. → ____ you hurry, you'll miss the bus.", "answer": ["Unless"], "explanation": "Use 'Unless' to replace 'If not'." },
+    { "type": "mcq", "question": "Choose the correct option: Were I ____ more time, I would learn Japanese.", "options": ["to have", "have", "having", "had"], "answer": 0, "explanation": "Inversion with 'were to' for unlikely future." },
+    { "type": "mcq", "question": "Best choice: Should you ____ any questions, let me know.", "options": ["have", "had", "to have", "having"], "answer": 0, "explanation": "Inverted first conditional with 'should'." },
+    { "type": "fill", "question": "Fill in the form: If I ____ (know) his number, I would call him.", "answer": ["knew"] },
+    { "type": "fill", "question": "Fill in: If we had left earlier, we ____ (not/miss) the opening.", "answer": ["would not have missed", "wouldn't have missed"] }
+  ]
+}
