@@ -1,14 +1,45 @@
-<div id="choices" class="choices"></div>
-<div id="feedback" class="feedback hidden"></div>
-<div class="actions">
-        <!-- no submit button anymore -->
-        <!-- Auto‑submit on Next -->
-<button id="btn-next" class="primary">Press Enter</button>
-</div>
-</section>
-@@ -41,6 +41,23 @@ <h1>English Grammar Practice</h1>
-<small> Endless practice >_< </small>
-</footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Grammar Practice</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>English Grammar Practice</h1>
+    <nav>
+      <button id="btn-start" class="primary">Start Practice</button>
+      <button id="btn-end" class="ghost" title="Finish the current session">End Session</button>
+    </nav>
+  </header>
+
+  <main class="view active">
+    <section class="statusbar">
+      <div><strong>Question</strong> <span id="q-number">0</span></div>
+      <div><strong>Correct</strong> <span id="q-correct">0</span></div>
+      <div><strong>Streak</strong> <span id="q-streak">0</span></div>
+    </section>
+
+    <section id="card" class="card hidden">
+      <div id="prompt" class="prompt"></div>
+      <div id="choices" class="choices"></div>
+      <div id="feedback" class="feedback hidden"></div>
+      <div class="actions">
+        <!-- Visual cue only; Enter key advances/submits -->
+        <button id="btn-next" class="primary" disabled aria-disabled="true">Press Enter →</button>
+      </div>
+    </section>
+
+    <section id="empty" class="muted">
+      Click “Start Practice” to begin. Questions will continue indefinitely (reshuffled) until you click “End Session.”
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Endless practice mode • Use the <kbd>Enter</kbd> key to submit/advance</small>
+  </footer>
 
   <!-- Session Summary Modal -->
   <div id="summary-backdrop" class="modal-backdrop hidden" aria-hidden="true"></div>
@@ -27,6 +58,6 @@
     </div>
   </dialog>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
