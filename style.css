@@ -27,3 +27,45 @@ button:disabled { opacity:.5; cursor:not-allowed; }
 .results h2 { margin-top:0; }
 .review-item { border-top:1px solid var(--border); padding:10px 0; }
 kbd { background:#f5f5f5; border:1px solid #ddd; padding:2px 5px; border-radius:4px; }
+/* ---- Modal (session summary) ---- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(1px);
+  z-index: 40;
+}
+
+.modal {
+  border: none;
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1rem;
+  max-width: 520px;
+  width: calc(100% - 2rem);
+  margin: 10vh auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  z-index: 50;
+}
+
+.modal::backdrop {
+  background: transparent; /* we draw our own backdrop for broader support */
+}
+
+.modal h2 {
+  margin: 0 0 .5rem 0;
+}
+
+.modal-body p {
+  margin: .35rem 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: .5rem;
+  justify-content: flex-end;
+  margin-top: .75rem;
+}
+
+/* utility */
+.hidden { display: none !important; }
