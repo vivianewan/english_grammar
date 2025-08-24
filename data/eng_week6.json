@@ -1,0 +1,19 @@
+{
+  "meta": { "title": "Week 6 – Tenses & Aspect Mix", "topic": "tenses" },
+  "questions": [
+    { "type": "mcq", "question": "Choose the best option: I ____ my keys, can you help me look for them?", "options": ["lost", "have lost", "had lost", "am losing"], "answer": 1, "explanation": "Present perfect for a recent result relevant now." },
+    { "type": "mcq", "question": "By the time we arrived, the film ____.", "options": ["has started", "had started", "started", "was started"], "answer": 1, "explanation": "Past perfect before a past point." },
+    { "type": "mcq", "question": "We ____ dinner when the doorbell rang.", "options": ["have", "had", "were having", "had had"], "answer": 2, "explanation": "Past continuous for interrupted background action." },
+    { "type": "mcq", "question": "Next month, I ____ here for two years.", "options": ["will live", "will be living", "will have lived", "am living"], "answer": 2, "explanation": "Future perfect for duration until a future point." },
+    { "type": "mcq", "question": "He usually ____ to school, but today he ____ the bus.", "options": ["walks / is taking", "is walking / takes", "walk / takes", "walks / takes"], "answer": 0, "explanation": "Habit vs present action." },
+    { "type": "fill", "question": "Fill in: I wish I ____ (know) the answer.", "answer": ["knew"], "explanation": "Wish about present → past simple." },
+    { "type": "fill", "question": "Fill in: If only she ____ (not/spend) so much time on her phone!", "answer": ["did not spend", "didn't spend"], "explanation": "If only + past for present regret." },
+    { "type": "mcq", "question": "Which is correct?", "options": ["I am knowing the answer.", "I know the answer.", "I do know the answering.", "I have knowing the answer."], "answer": 1, "explanation": "Stative verb 'know' not in continuous." },
+    { "type": "mcq", "question": "While he ____ along the beach, he ____ a strange shell.", "options": ["walked / finds", "was walking / found", "was walking / had found", "walks / was finding"], "answer": 1 },
+    { "type": "fill", "question": "Fill in: She has been ____ (study) English since grade 4.", "answer": ["studying"], "explanation": "Present perfect continuous form." },
+    { "type": "mcq", "question": "Choose the correct tense: I promise I ____ you as soon as I arrive.", "options": ["call", "will call", "am calling", "called"], "answer": 0, "explanation": "After 'as soon as' future meaning uses present simple." },
+    { "type": "mcq", "question": "By the end of this week, they ____ the app.", "options": ["finish", "are finishing", "will have finished", "will finish"], "answer": 2 },
+    { "type": "fill", "question": "Rewrite with past perfect: We ate. Then we went out. → We ____ out after we ____ .", "answer": ["went / had eaten", "went out / had eaten"], "explanation": "Past perfect for earlier past action." },
+    { "type": "mcq", "question": "Which sentence is correct?", "options": ["I have seen him yesterday.", "I saw him yesterday.", "I have been seeing him yesterday.", "I was seen him yesterday."], "answer": 1, "explanation": "Past simple with finished past time." }
+  ]
+}
