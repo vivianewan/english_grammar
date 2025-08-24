@@ -1,0 +1,19 @@
+{
+  "meta": { "title": "Week 10 – Reported Speech, Modals & Phrasal Verbs", "topic": "reported & modals" },
+  "questions": [
+    { "type": "mcq", "question": "Reported speech: “I am tired,” he said.", "options": ["He said he is tired.", "He said he was tired.", "He said that I was tired.", "He says he was tired."], "answer": 1 },
+    { "type": "mcq", "question": "Reported speech: “I will call you tomorrow,” she said yesterday.", "options": ["She said she will call me tomorrow.", "She said she would call me the next day.", "She said that she would call me tomorrow.", "She said that she will call me the next day."], "answer": 1 },
+    { "type": "mcq", "question": "Choose the correct modal: You ____ see a doctor; that cough sounds serious.", "options": ["could", "might", "should", "would"], "answer": 2 },
+    { "type": "mcq", "question": "Obligation vs prohibition: In our school, students ____ wear uniforms; they ____ use phones in class.", "options": ["must / mustn't", "have to / don't have to", "should / shouldn't", "can / can't"], "answer": 0 },
+    { "type": "fill", "question": "Fill in with a phrasal verb (turn): Please ____ the TV; it’s too loud.", "answer": ["turn down"] },
+    { "type": "fill", "question": "Fill in with a phrasal verb (put): We had to ____ the meeting because the teacher was sick.", "answer": ["put off", "postpone"], "explanation": "Accept either phrasing." },
+    { "type": "mcq", "question": "Choose the best option: He said he ____ the report the next day.", "options": ["finishes", "finished", "would finish", "will finish"], "answer": 2 },
+    { "type": "mcq", "question": "Identify advice/modality strength (strongest):", "options": ["You might try sleeping earlier.", "You could try sleeping earlier.", "You should try sleeping earlier.", "You must try sleeping earlier."], "answer": 3 },
+    { "type": "fill", "question": "Change to reported speech: “Do you like sushi?” she asked me.", "answer": ["She asked me if I liked sushi.", "She asked whether I liked sushi."] },
+    { "type": "mcq", "question": "Choose the correct phrasal verb:", "options": ["look up to = admire", "look up = respect", "look after = search for", "look into = take care of"], "answer": 0 },
+    { "type": "mcq", "question": "Best completion: I ____ swim when I was five, but now I ____ swim very well.", "options": ["could / can't", "couldn't / can", "wasn't able to / can't", "can / could"], "answer": 1 },
+    { "type": "fill", "question": "Fill in: He warned us ____ (not/touch) the electric fence.", "answer": ["not to touch"] },
+    { "type": "mcq", "question": "Choose the correct backshift:", "options": ["“I have been waiting,” → He said he has been waiting.", "“I have been waiting,” → He said he had been waiting.", "“I have been waiting,” → He said he waited.", "“I have been waiting,” → He says he had been waiting."], "answer": 1 },
+    { "type": "mcq", "question": "Pick the correct phrasal meaning:", "options": ["give up = donate", "make up = invent", "run into = exercise", "take after = remove"], "answer": 1 }
+  ]
+}
