@@ -1,0 +1,19 @@
+{
+  "meta": { "title": "Week 8 – Articles, Quantifiers & Determiners", "topic": "articles" },
+  "questions": [
+    { "type": "mcq", "question": "Choose the correct article: She wants to be ____ engineer.", "options": ["a", "an", "the", "—"], "answer": 1 },
+    { "type": "mcq", "question": "Choose the correct option: ____ Amazon River is long.", "options": ["A", "An", "The", "—"], "answer": 2, "explanation": "Rivers take 'the'." },
+    { "type": "mcq", "question": "Which is correct?", "options": ["I love a music.", "I love the music.", "I love music.", "I love musics."], "answer": 2 },
+    { "type": "mcq", "question": "Choose the best quantifier: There is ____ information to read.", "options": ["many", "much", "a few", "several"], "answer": 1 },
+    { "type": "mcq", "question": "Choose the best quantifier: ____ students were absent today.", "options": ["Much", "Many", "Little", "Less"], "answer": 1 },
+    { "type": "mcq", "question": "Fill the gap: There are ____ cookies left; take one.", "options": ["a little", "few", "a few", "little"], "answer": 2, "explanation": "'A few' = a small number (positive)." },
+    { "type": "mcq", "question": "Correct usage of 'each/every':", "options": ["Every of the students passed.", "Each of the students passed.", "Each students passed.", "Every students passed."], "answer": 1 },
+    { "type": "mcq", "question": "Choose the correct pair: ____ advice / ____ chairs", "options": ["many / much", "much / many", "few / little", "a little / a few"], "answer": 1 },
+    { "type": "fill", "question": "Fill in: She doesn't have ____ (much/many) time.", "answer": ["much"] },
+    { "type": "fill", "question": "Fill in: There were ____ (few/a few) mistakes, but overall it was excellent.", "answer": ["a few"] },
+    { "type": "mcq", "question": "Correct sentence:", "options": ["The Mount Fuji is beautiful.", "Mount Fuji is a beautiful mountain.", "The Mount Fuji is a beautiful mountain.", "Mount Fuji is the beautiful mountain."], "answer": 1 },
+    { "type": "mcq", "question": "Choose the best option: I don't have ____ money left.", "options": ["many", "much", "a few", "several"], "answer": 1 },
+    { "type": "fill", "question": "Fill in: ____ people think grammar is boring, but not me. (many/much)", "answer": ["Many"] },
+    { "type": "mcq", "question": "Which is correct with 'the'?", "options": ["The biology is interesting.", "Biology is interesting.", "The biology I've studied is interesting.", "Both B and C"], "answer": 3, "explanation": "No article for subjects in general; article OK with modifier." }
+  ]
+}
