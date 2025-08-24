@@ -27,7 +27,7 @@
       <div id="choices" class="choices"></div>
       <div id="feedback" class="feedback hidden"></div>
       <div class="actions">
-        <!-- no submit button anymore -->
+        <!-- Auto‑submit on Next -->
         <button id="btn-next" class="primary">Next →</button>
       </div>
     </section>
@@ -40,6 +40,23 @@
   <footer class="site-footer">
     <small>Endless practice mode • Auto‑submit on “Next”</small>
   </footer>
+
+  <!-- Session Summary Modal -->
+  <div id="summary-backdrop" class="modal-backdrop hidden" aria-hidden="true"></div>
+  <dialog id="summary-modal" class="modal" aria-labelledby="summary-title" aria-modal="true">
+    <h2 id="summary-title">Session Summary</h2>
+    <div class="modal-body">
+      <p><strong>Questions answered:</strong> <span id="sum-answered">0</span></p>
+      <p><strong>Correct:</strong> <span id="sum-correct">0</span></p>
+      <p><strong>Accuracy:</strong> <span id="sum-accuracy">0%</span></p>
+      <p><strong>Longest streak:</strong> <span id="sum-maxstreak">0</span></p>
+      <p><strong>Time spent:</strong> <span id="sum-time">0:00</span></p>
+    </div>
+    <div class="modal-actions">
+      <button id="summary-close" class="ghost">Close &amp; Reset</button>
+      <button id="summary-restart" class="primary">Start New Session</button>
+    </div>
+  </dialog>
 
   <script src="app.js"></script>
 </body>
