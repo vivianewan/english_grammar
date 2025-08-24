@@ -1,28 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>English Grammar Practice</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="site-header">
-    <h1>English Grammar Practice</h1>
-    <nav>
-      <button id="btn-start" class="primary">Start Practice</button>
-      <button id="btn-end" class="ghost" title="Finish the current session">End Session</button>
-    </nav>
-  </header>
+<div id="choices" class="choices"></div>
+<div id="feedback" class="feedback hidden"></div>
+<div class="actions">
+        <!-- no submit button anymore -->
+        <!-- Auto‑submit on Next -->
+<button id="btn-next" class="primary">Press Enter</button>
+</div>
+</section>
+@@ -41,6 +41,23 @@ <h1>English Grammar Practice</h1>
+<small> Endless practice >_< </small>
+</footer>
 
-  <main class="view active">
-    <section class="statusbar">
-      <div><strong>Question</strong> <span id="q-number">0</span></div>
-      <div><strong>Correct</strong> <span id="q-correct">0</span></div>
-      <div><strong>Streak</strong> <span id="q-streak">0</span></div>
-    </section>
+  <!-- Session Summary Modal -->
+  <div id="summary-backdrop" class="modal-backdrop hidden" aria-hidden="true"></div>
+  <dialog id="summary-modal" class="modal" aria-labelledby="summary-title" aria-modal="true">
+    <h2 id="summary-title">Session Summary</h2>
+    <div class="modal-body">
+      <p><strong>Questions answered:</strong> <span id="sum-answered">0</span></p>
+      <p><strong>Correct:</strong> <span id="sum-correct">0</span></p>
+      <p><strong>Accuracy:</strong> <span id="sum-accuracy">0%</span></p>
+      <p><strong>Longest streak:</strong> <span id="sum-maxstreak">0</span></p>
+      <p><strong>Time spent:</strong> <span id="sum-time">0:00</span></p>
+    </div>
+    <div class="modal-actions">
+      <button id="summary-close" class="ghost">Close &amp; Reset</button>
+      <button id="summary-restart" class="primary">Start New Session</button>
+    </div>
+  </dialog>
 
-    <section id="card" class="card hidden">
-      <div id="prompt" class="prompt"></div>
-      <div id="choices" class="choices"></div>
-      <div id="feedback" class="feedbac
+<script src="app.js"></script>
+</body>
+</html>
