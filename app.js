@@ -1,5 +1,5 @@
-/* Endless practice + auto-submit-on-next + SESSION SUMMARY
-   Now with robust error handling for JSON loads.
+/* Endless practice with auto-submit + session summary
+   Robust to varied question schemas and unknown types.
 */
 
 const els = {
@@ -26,18 +26,18 @@ const els = {
   modalRestart: document.getElementById("summary-restart"),
 };
 
-let BANK = [];          // all questions
-let order = [];         // shuffled indices
-let i = 0;              // position in order
+let BANK = [];
+let order = [];
+let i = 0;
 let started = false;
 let answered = 0;
 let score = 0;
 let streak = 0;
 let maxStreak = 0;
-let submitted = false;  // has the current question been auto-submitted yet?
+let submitted = false;
 let sessionStart = 0;
 
-// ---- helpers ---------------------------------------------------------------
+/* ---------------- helpers ---------------- */
 
 function shuffle(a) {
   for (let j = a.length - 1; j > 0; j--) {
@@ -57,8 +57,56 @@ function encodeHTML(s) {
 function show(el) { el.classList.remove("hidden"); }
 function hide(el) { el.classList.add("hidden"); }
 
-function renderQuestion(q) {
-  els.prompt.innerHTML = encodeHTML(q.question);
+/* ------ schema normalizer (the fix you need) ------ */
+function normalizeQuestion(raw) {
+  const q = { ...raw };
+
+  // infer type if missing/unknown
+  let type = (q.type || "").toLowerCase();
+  if (type !== "mcq" && type !== "fill") {
+    if (Array.isArray(q.options) && q.options.length) type = "mcq";
+    else type = "fill";
+  }
+
+  // unify answer field
+  let ans = q.answer ?? q.answers ?? q.correct ?? q.key;
+
+  if (type === "mcq") {
+    const opts = Array.isArray(q.options) ? q.options : [];
+    // if answer is a string, map to option index (case-insensitive)
+    if (typeof ans === "string") {
+      const idx = opts.findIndex(
+        (o) => (o ?? "").toString().trim().toLowerCase() === ans.trim().toLowerCase()
+      );
+      ans = idx >= 0 ? idx : 0; // default to first option if not found
+    }
+    // if answer is array like ["B"] or ["option text"], map first element
+    if (Array.isArray(ans) && ans.length) {
+      if (typeof ans[0] === "number") ans = ans[0];
+      else if (typeof ans[0] === "string") {
+        const idx = opts.findIndex(
+          (o) => (o ?? "").toString().trim().toLowerCase() === ans[0].trim().toLowerCase()
+        );
+        ans = idx >= 0 ? idx : 0;
+      }
+    }
+    if (typeof ans !== "number") ans = 0;
+    return { ...q, type: "mcq", options: opts, answer: ans };
+  } else {
+    // fill-in: allow string or array of strings
+    if (typeof ans === "string") ans = [ans];
+    if (!Array.isArray(ans) || ans.length === 0) ans = [""];
+    ans = ans.map((s) => (s ?? "").toString());
+    return { ...q, type: "fill", answer: ans };
+  }
+}
+
+/* -------------- rendering --------------- */
+
+function renderQuestion(qraw) {
+  const q = normalizeQuestion(qraw);
+
+  els.prompt.innerHTML = encodeHTML(q.question || "(No prompt provided)");
   els.choices.innerHTML = "";
   els.feedback.innerHTML = "";
   hide(els.feedback);
@@ -74,42 +122,42 @@ function renderQuestion(q) {
       `;
       els.choices.appendChild(w);
     });
-  } else if (q.type === "fill") {
+  } else {
     const w = document.createElement("div");
     w.className = "fillin";
     w.innerHTML = `
-      <input id="fill-answer" type="text" placeholder="Type your answer" autocomplete="off">
+      <input id="fill-answer" type="text" placeholder="Type your answer, then press Enter" autocomplete="off">
     `;
     els.choices.appendChild(w);
     setTimeout(() => document.getElementById("fill-answer")?.focus(), 0);
   }
 }
 
-function getUserAnswer(q) {
+function getUserAnswer(qraw) {
+  const q = normalizeQuestion(qraw);
   if (q.type === "mcq") {
     const checked = els.choices.querySelector('input[name="choice"]:checked');
     return checked ? Number(checked.value) : null;
-  } else if (q.type === "fill") {
+  } else {
     const v = document.getElementById("fill-answer")?.value ?? "";
     return v.trim();
   }
-  return null;
 }
 
-function isCorrect(q, ans) {
+function isCorrect(qraw, ans) {
+  const q = normalizeQuestion(qraw);
   if (q.type === "mcq") return ans === q.answer;
-  if (q.type === "fill") {
-    const gold = Array.isArray(q.answer) ? q.answer : [q.answer];
-    return gold.map(s => s.trim().toLowerCase()).includes((ans ?? "").toLowerCase());
-  }
-  return false;
+  const gold = q.answer.map((s) => s.trim().toLowerCase());
+  return gold.includes((ans ?? "").toLowerCase());
 }
 
-function showFeedback(ok, q) {
+function showFeedback(ok, qraw) {
+  const q = normalizeQuestion(qraw);
   const prefix = ok ? "✅ Correct." : "❌ Not quite.";
-  const reveal = (q.type === "mcq")
-    ? `Answer: <strong>${encodeHTML(q.options[q.answer])}</strong>`
-    : `Answer: <strong>${encodeHTML(Array.isArray(q.answer) ? q.answer.join(" / ") : q.answer)}</strong>`;
+  const reveal =
+    q.type === "mcq"
+      ? `Answer: <strong>${encodeHTML(q.options[q.answer])}</strong>`
+      : `Answer: <strong>${encodeHTML(q.answer.join(" / "))}</strong>`;
   const expl = q.explanation ? `<div class="explain">${encodeHTML(q.explanation)}</div>` : "";
   els.feedback.innerHTML = `${prefix} ${reveal}${expl}`;
   show(els.feedback);
@@ -129,7 +177,7 @@ function nextIndex() {
   }
 }
 
-// ---- session summary -------------------------------------------------------
+/* -------------- summary --------------- */
 
 function formatDuration(ms) {
   const totalSec = Math.max(0, Math.floor(ms / 1000));
@@ -177,47 +225,27 @@ function resetStateToLanding() {
   show(els.empty);
 }
 
-// ---- robust loaders --------------------------------------------------------
+/* -------------- loaders --------------- */
 
 async function safeFetchJson(url) {
-  let res;
-  try {
-    res = await fetch(url);
-  } catch (e) {
-    const hint = location.protocol === "file:" ? "\n\nHint: open via a local server or GitHub Pages (fetch is blocked on file://)." : "";
-    throw new Error(`Cannot fetch ${url}. ${e?.message || e}${hint}`);
-  }
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load ${url} (HTTP ${res.status})`);
-  try {
-    return await res.json();
-  } catch (e) {
-    throw new Error(`Invalid JSON in ${url}. Remove comments, trailing commas, etc.\n${e?.message || e}`);
-  }
+  return await res.json();
 }
 
 async function loadAllPacks() {
-  const cfg = await safeFetchJson("data/packs.json");
-  if (!cfg || !Array.isArray(cfg.packs)) {
-    throw new Error("data/packs.json must be: { \"packs\": [ \"data/eng_week1.json\", ... ] }");
-  }
-
+  const { packs } = await safeFetchJson("data/packs.json");
   const all = [];
-  for (const p of cfg.packs) {
+  for (const p of packs) {
     const blob = await safeFetchJson(p);
     const qs = Array.isArray(blob) ? blob : (blob.questions || []);
-    if (!Array.isArray(qs) || !qs.length) {
-      console.warn(`No questions found in ${p}`);
-      continue;
-    }
     all.push(...qs);
   }
-  if (!all.length) {
-    throw new Error("Loaded 0 questions. Check your pack file paths and contents.");
-  }
+  if (!all.length) throw new Error("No questions loaded.");
   return all;
 }
 
-// ---- engine ---------------------------------------------------------------
+/* -------------- engine --------------- */
 
 async function start() {
   if (started) return;
@@ -227,8 +255,7 @@ async function start() {
     BANK = await loadAllPacks();
   } catch (err) {
     started = false;
-    console.error(err);
-    alert(`⚠️ Could not start practice:\n\n${err.message || err}`);
+    alert(`Could not start practice:\n${err.message || err}`);
     return;
   }
 
@@ -251,7 +278,7 @@ function paintCurrent() {
   renderQuestion(q);
   updateStatus();
   submitted = false;
-  els.next.textContent = "Next →";
+  // keep whatever label your HTML uses (e.g., “Next →” or “Press Enter →”)
 }
 
 function autoSubmitThenAdvance() {
@@ -269,7 +296,6 @@ function autoSubmitThenAdvance() {
     }
     showFeedback(ok, q);
     submitted = true;
-    els.next.textContent = "Continue →";
     updateStatus();
   } else {
     nextIndex();
@@ -277,9 +303,24 @@ function autoSubmitThenAdvance() {
   }
 }
 
-// ---- wire up --------------------------------------------------------------
+/* -------------- events --------------- */
 
 els.start.addEventListener("click", start);
+
+// make the visible button behave like Enter
+els.next.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (!started) return;
+  autoSubmitThenAdvance();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (!started) return;
+  if (e.key === "Enter") {
+    e.preventDefault();
+    autoSubmitThenAdvance();
+  }
+});
 
 els.end.addEventListener("click", () => {
   if (!started) return;
@@ -297,16 +338,6 @@ els.modalRestart.addEventListener("click", async () => {
   await start();
 });
 
-// keyboard: Enter = Next (only when started)
-document.addEventListener("keydown", (e) => {
-  if (!started) return;
-  if (e.key === "Enter") {
-    e.preventDefault();
-    autoSubmitThenAdvance();
-  }
-});
-
-// clicking backdrop also closes (optional)
 els.backdrop.addEventListener("click", () => {
   if (!started) return;
   closeSummary();
