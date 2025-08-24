@@ -155,4 +155,160 @@ function openSummary() {
 
 function closeSummary() {
   els.backdrop.classList.add("hidden");
-  if (typeof els.modal.close === "function") els.modal.close(
+  if (typeof els.modal.close === "function") els.modal.close();
+  else els.modal.classList.add("hidden");
+}
+
+function resetStateToLanding() {
+  started = false;
+  BANK = [];
+  order = [];
+  i = 0;
+  answered = 0;
+  score = 0;
+  streak = 0;
+  maxStreak = 0;
+  submitted = false;
+  sessionStart = 0;
+  els.qnum.textContent = "0";
+  els.correct.textContent = "0";
+  els.streak.textContent = "0";
+  hide(els.card);
+  show(els.empty);
+}
+
+// ---- robust loaders --------------------------------------------------------
+
+async function safeFetchJson(url) {
+  let res;
+  try {
+    res = await fetch(url);
+  } catch (e) {
+    const hint = location.protocol === "file:" ? "\n\nHint: open via a local server or GitHub Pages (fetch is blocked on file://)." : "";
+    throw new Error(`Cannot fetch ${url}. ${e?.message || e}${hint}`);
+  }
+  if (!res.ok) throw new Error(`Failed to load ${url} (HTTP ${res.status})`);
+  try {
+    return await res.json();
+  } catch (e) {
+    throw new Error(`Invalid JSON in ${url}. Remove comments, trailing commas, etc.\n${e?.message || e}`);
+  }
+}
+
+async function loadAllPacks() {
+  const cfg = await safeFetchJson("data/packs.json");
+  if (!cfg || !Array.isArray(cfg.packs)) {
+    throw new Error("data/packs.json must be: { \"packs\": [ \"data/eng_week1.json\", ... ] }");
+  }
+
+  const all = [];
+  for (const p of cfg.packs) {
+    const blob = await safeFetchJson(p);
+    const qs = Array.isArray(blob) ? blob : (blob.questions || []);
+    if (!Array.isArray(qs) || !qs.length) {
+      console.warn(`No questions found in ${p}`);
+      continue;
+    }
+    all.push(...qs);
+  }
+  if (!all.length) {
+    throw new Error("Loaded 0 questions. Check your pack file paths and contents.");
+  }
+  return all;
+}
+
+// ---- engine ---------------------------------------------------------------
+
+async function start() {
+  if (started) return;
+  started = true;
+
+  try {
+    BANK = await loadAllPacks();
+  } catch (err) {
+    started = false;
+    console.error(err);
+    alert(`⚠️ Could not start practice:\n\n${err.message || err}`);
+    return;
+  }
+
+  order = shuffle([...Array(BANK.length).keys()]);
+  i = 0;
+  answered = 0;
+  score = 0;
+  streak = 0;
+  maxStreak = 0;
+  submitted = false;
+  sessionStart = Date.now();
+
+  hide(els.empty);
+  show(els.card);
+  paintCurrent();
+}
+
+function paintCurrent() {
+  const q = BANK[order[i]];
+  renderQuestion(q);
+  updateStatus();
+  submitted = false;
+  els.next.textContent = "Next →";
+}
+
+function autoSubmitThenAdvance() {
+  const q = BANK[order[i]];
+  if (!submitted) {
+    const ans = getUserAnswer(q);
+    const ok = isCorrect(q, ans);
+    answered++;
+    if (ok) {
+      score++;
+      streak++;
+      maxStreak = Math.max(maxStreak, streak);
+    } else {
+      streak = 0;
+    }
+    showFeedback(ok, q);
+    submitted = true;
+    els.next.textContent = "Continue →";
+    updateStatus();
+  } else {
+    nextIndex();
+    paintCurrent();
+  }
+}
+
+// ---- wire up --------------------------------------------------------------
+
+els.start.addEventListener("click", start);
+
+els.end.addEventListener("click", () => {
+  if (!started) return;
+  openSummary();
+});
+
+els.modalClose.addEventListener("click", () => {
+  closeSummary();
+  resetStateToLanding();
+});
+
+els.modalRestart.addEventListener("click", async () => {
+  closeSummary();
+  resetStateToLanding();
+  await start();
+});
+
+// keyboard: Enter = Next (only when started)
+document.addEventListener("keydown", (e) => {
+  if (!started) return;
+  if (e.key === "Enter") {
+    e.preventDefault();
+    autoSubmitThenAdvance();
+  }
+});
+
+// clicking backdrop also closes (optional)
+els.backdrop.addEventListener("click", () => {
+  if (!started) return;
+  closeSummary();
+  resetStateToLanding();
+});
